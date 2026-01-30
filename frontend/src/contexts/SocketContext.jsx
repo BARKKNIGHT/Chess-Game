@@ -50,10 +50,10 @@ const SocketProvider = ({ children }) => {
       transports: ["websocket"],
       auth: { authPayload },
       reconnection: true,
-      reconnectionDelay: 1000,
+      reconnectionDelay: 2000,
       reconnectionDelayMax: 5000,
       reconnectionAttempts: maxReconnectAttempts,
-      timeout: 10000,
+      timeout: 60000,
     });
 
     newSocket.on("connect", () => {
