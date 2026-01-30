@@ -54,8 +54,8 @@ const Game = () => {
     username: user
       ? user.username
       : isGuest
-      ? `Guest_${guestId?.substring(6, 12)}`
-      : "Player",
+        ? `Guest_${guestId?.substring(6, 12)}`
+        : "Player",
     avatar: user ? user.avatar : "/white_400.png",
   });
   const [opponentData, setOpponentData] = useState({
@@ -71,12 +71,12 @@ const Game = () => {
   const [showDrawConfirmModal, setShowDrawConfirmModal] = useState(false);
 
   const handleNewGame = () => {
- /*    if (started && !gameOver) {
-      const confirmNewGame = window.confirm(
-        "Starting a new game will resign the current game. Are you sure you want to continue?"
-      );
-      if (!confirmNewGame) return;
-    } */
+    /*    if (started && !gameOver) {
+         const confirmNewGame = window.confirm(
+           "Starting a new game will resign the current game. Are you sure you want to continue?"
+         );
+         if (!confirmNewGame) return;
+       } */
     socket.emit(RESIGN, { gameId: gameIdRef.current });
     // Reset all game state
     setGameOver(false);
@@ -428,6 +428,7 @@ const Game = () => {
                 playersData={playersData}
                 opponentData={opponentData}
                 gameOver={gameOver}
+                chess={chessRef.current}
               />
             </div>
 
